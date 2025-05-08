@@ -10,23 +10,29 @@ file "lib/heist/builtin/compiled_library.rb" do |t|
   File.open(t.name, 'w') { |f| f.write 'program ' + program.to_ruby.inspect }
 end
 
-task :compile => "lib/heist/builtin/compiled_library.rb"
+task compile: "lib/heist/builtin/compiled_library.rb"
+
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
 
 namespace :spec do
   task :r5rs do
     procedures = Dir['r5rs/*.html'].
-                 map { |f| File.read(f) }.
-                 join("\n").
-                 split(/\n+/).
-                 grep(/(syntax|procedure)\:/).
-                 map { |s| s.gsub(/<\/?[^>]+>/, '').
-                             scan(/\(([^\) ]+)/).
-                             flatten.
-                             first }.
-                 uniq.
-                 compact.
-                 map { |s| s.gsub('&lt;', '<').
-                             gsub('&gt;', '>') }
+      map { |f| File.read(f) }.
+      join("\n").
+      split(/\n+/).
+      grep(/(syntax|procedure)\:/).
+      map { |s| s.gsub(/<\/?[^>]+>/, '').
+        scan(/\(([^\) ]+)/).
+        flatten.
+        first }.
+      uniq.
+      compact.
+      map { |s| s.gsub('&lt;', '<').
+        gsub('&gt;', '>') }
     
     scope = Heist::Runtime.new.top_level
     procedures.each do |proc|
@@ -36,3 +42,5 @@ namespace :spec do
   end
 end
 
+
+task default: [:spec]

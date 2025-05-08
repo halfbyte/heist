@@ -1,11 +1,15 @@
 = Heist
 
-http://github.com/jcoglan/heist
+http://github.com/halfbyte/heist
 
 Heist is a Scheme interpreter written in Ruby. It provides an executable for
 running Scheme code directly, and also allows the interpreter to be easily
 embedded in, and extended using, Ruby applications. It nominally targets R5RS,
 though is likely to be more liberal than other implementations.
+
+This version is a fork from @jcoglan's version, with @DerGuteMoritz's keywords
+PR added on top and modernised so that it runs on current ruby versions and is
+tested in a matrix on GitHub actions.
 
 
 == What is Scheme?
@@ -128,7 +132,7 @@ per-runtime-environment basis.
 Heist can be run from the command line or embedded in Ruby applications. To
 run a Scheme file:
 
-  heist path/to/file.scm
+  reheist path/to/file.scm
 
 To start a REPL session:
 
@@ -305,6 +309,7 @@ definition for <tt>Y</tt>:
 (The MIT License)
 
 Copyright (c) 2009-2011 James Coglan
+Copyright (c) 2012-2025 Bevuta GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the 'Software'), to deal in
