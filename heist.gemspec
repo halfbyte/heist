@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "oyster", "~> 0.9"
   s.add_dependency "treetop", "~> 1.2"
+  s.add_dependency "readline", "~> 0.0.4"
+  s.add_dependency "readline-ext", "~> 0.2"
   
   s.add_development_dependency "rspec", "~> 3.13"
 end
