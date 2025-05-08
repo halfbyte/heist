@@ -26,6 +26,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libreadline-dev
+          version: 1.0
     - name: Set up Ruby
     # uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@v1
