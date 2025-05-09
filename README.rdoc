@@ -11,7 +11,6 @@ This version is a fork from @jcoglan's version, with @DerGuteMoritz's keywords
 PR added on top and modernised so that it runs on current ruby versions and is
 tested in a matrix on GitHub actions.
 
-
 == What is Scheme?
 
 Scheme is a dialect of Lisp, one of the oldest programming languages still in
@@ -309,7 +308,7 @@ definition for <tt>Y</tt>:
 (The MIT License)
 
 Copyright (c) 2009-2011 James Coglan
-Copyright (c) 2012-2025 Bevuta GmbH
+Copyright (c) 2012-2025 Bevuta IT GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the 'Software'), to deal in
