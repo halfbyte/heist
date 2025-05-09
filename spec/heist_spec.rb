@@ -7,7 +7,7 @@ describe Heist do
     @runtime = Heist::Runtime.new(options)
     
     @runtime.define 'assert' do |value|
-      value.should be_true
+      value.should be true
     end
     @runtime.define 'assert-equal' do |expected, actual|
       actual.should == expected
@@ -21,9 +21,7 @@ describe Heist do
   dir = File.expand_path('../scheme_tests', __FILE__)
   
   shared_examples_for "Scheme interpreter" do
-    
-    tests = Dir.entries(dir).grep(/\.scm$/) -
-            %w[continuations.scm hygienic.scm unhygienic.scm]
+    tests = Dir.entries(dir).grep(/\.scm$/) - %w[continuations.scm hygienic.scm unhygienic.scm]
     
     tests.each do |test|
       it("runs #{test}") { @runtime.run File.join(dir, test) }
